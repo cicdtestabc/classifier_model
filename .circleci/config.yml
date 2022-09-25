@@ -21,7 +21,7 @@ prepare_tox: &prepare_tox
 jobs:
   test_app:
     <<: *defaults
-    working_directory: ~/api/app
+    working_directory: ~/project/api/app
     steps:
       - checkout:
           path: ~/project
