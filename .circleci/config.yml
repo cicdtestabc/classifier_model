@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: cimg/base:2020.01
+    - image: cimg/python:3.8.4
   working_directory: ~/project
 
 prepare_venv: &prepare_venv
@@ -11,14 +11,14 @@ prepare_venv: &prepare_venv
     command: |
       python3 -m venv venv
       source venv/bin/activate
-      pip3 install --upgrade pip
+      pip install --upgrade pip
 prepare_tox: &prepare_tox
   run:
     name: Install tox
     command: |
-      sudo apt-get update && sudo apt install -y python3-pip
-      sudo pip3 install --upgrade pip
-      pip3 install --user tox
+      sudo apt install -y python3-pip
+      sudo python -m pip install --upgrade pip
+      pip install --user tox
 
 jobs:
   api_test_app:
