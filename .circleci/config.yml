@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: cimg/3.9.5
+    - image: cimg/base:2020.01
   working_directory: ~/project
 
 prepare_venv: &prepare_venv
