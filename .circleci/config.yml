@@ -20,7 +20,7 @@ prepare_tox: &prepare_tox
       pip install --user tox
       pip install --user tid-classifier-model==0.0.2
 jobs:
-  test_app:
+  api_test_app:
     <<: *defaults
     working_directory: ~/project/api
     steps:
@@ -51,9 +51,9 @@ tags_only: &tags_only
 
 workflows:
   version: 2
-  section_07:
+  api_test:
     jobs:
-      - test_app
+      - api_test_app
       # upload after git tags are created
       - test_and_upload_classifier_model:
           <<: *tags_only
