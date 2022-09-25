@@ -16,9 +16,9 @@ prepare_tox: &prepare_tox
   run:
     name: Install tox
     command: |
-      sudo apt-get update && sudo apt install -y python3-pip
-      sudo pip3 install --upgrade pip
-      pip3 install --user tox
+      sudo apt-get update && sudo apt install -y python-pip
+      sudo pip install --upgrade pip
+      pip install --user tox
 
 jobs:
   api_test_app:
