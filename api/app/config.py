@@ -6,11 +6,13 @@ from typing import List, cast
 from loguru import logger
 from pydantic import AnyHttpUrl, BaseSettings
 
-logging.basicConfig(filename='test_log',
-                    filemode='a',
-                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                    datefmt='%H:%M:%S',
-                    level=logging.INFO)
+logging.basicConfig(
+    filename="test_log",
+    filemode="a",
+    format="%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s",
+    datefmt="%H:%M:%S",
+    level=logging.INFO,
+)
 
 
 class LoggingSettings(BaseSettings):

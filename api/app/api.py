@@ -3,11 +3,11 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+from classifier_model import __version__ as model_version
+from classifier_model.predict import make_prediction
 from fastapi import APIRouter, HTTPException
 from fastapi.encoders import jsonable_encoder
 from loguru import logger
-from classifier_model import __version__ as model_version
-from classifier_model.predict import make_prediction
 
 from app import __version__, schemas
 from app.config import settings
@@ -20,7 +20,7 @@ def health() -> dict:
     """
     Root Get
     """
-    
+
     health = schemas.Health(
         name=settings.PROJECT_NAME, api_version=__version__, model_version=model_version
     )
@@ -33,9 +33,9 @@ async def predict(input_data: schemas.MultipleTitanicDataInputs) -> Any:
     """
     Make house price predictions with the TID classifier model
     """
-   
+
     input_df = pd.DataFrame(jsonable_encoder(input_data.inputs))
-   
+
     # Advanced: You can improve performance of your API by rewriting the
     # `make prediction` function to be async and using await here.
     logger.add("file_{time}.log")
