@@ -33,10 +33,7 @@ async def predict(input_data: schemas.MultipleTitanicDataInputs) -> Any:
     """
     Make house price predictions with the TID classifier model
     """
-
     input_df = pd.DataFrame(jsonable_encoder(input_data.inputs))
-
-
     # Advanced: You can improve performance of your API by rewriting the
     # `make prediction` function to be async and using await here.
     logger.add("file_{time}.log")
