@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: cimg/python:3.9.5
+    - image: circleci/python:3.9.5
   working_directory: ~/project
 
 prepare_venv: &prepare_venv
@@ -18,6 +18,7 @@ prepare_tox: &prepare_tox
     command: |
       sudo pip install --upgrade pip
       pip install --user tox
+      pip install --user tid-classifier-model==0.0.2
 jobs:
   test_app:
     <<: *defaults
