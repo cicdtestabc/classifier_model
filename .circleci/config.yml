@@ -17,7 +17,7 @@ prepare_tox: &prepare_tox
     name: Install tox
     command: |
       sudo apt-get update && sudo apt install -y python3-pip
-      sudo pip install --upgrade pip
+      sudo pip3 install --upgrade pip
       pip3 install --user tox
 
 jobs:
