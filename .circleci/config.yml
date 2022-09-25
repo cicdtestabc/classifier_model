@@ -24,7 +24,7 @@ jobs:
     working_directory: ~/api/app
     steps:
       - checkout:
-          path: ~/project
+          path: ~/api
       - *prepare_tox
       - run:
           name: Runnning app tests
