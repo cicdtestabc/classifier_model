@@ -39,7 +39,7 @@ async def predict(input_data: schemas.MultipleTitanicDataInputs) -> Any:
     logger.add("file_{time}.log")
     logger.info(f"Making prediction on inputs: {input_data.inputs}")
     results = make_prediction(input_data=input_df.replace({np.nan: None}))
-
+    print(results)
     if results["errors"] is not None:
         logger.warning(f"Prediction validation error: {results.get('errors')}")
         raise HTTPException(status_code=400, detail=json.loads(results["errors"]))
