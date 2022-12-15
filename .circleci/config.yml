@@ -5,19 +5,12 @@ defaults: &defaults
     - image: cimg/python:3.8.4
   working_directory: ~/project
 
-prepare_venv: &prepare_venv
-  run:
-    name: Create venv
-    command: |
-      python3 -m venv venv
-      source venv/bin/activate
-      pip install --upgrade pip
 prepare_tox: &prepare_tox
   run:
     name: Install tox
     command: |
       python -m pip install --upgrade pip
-      pip install --upgrade pip
+      pip install virtualenv
       pip install --user tox
 
 jobs:
@@ -51,10 +44,12 @@ tags_only: &tags_only
       only: /^.*/
 
 workflows:
-  version: 2
+  version: 2.1
   api_test:
     jobs:
       - api_test_app
       # upload after git tags are created
       - test_and_upload_classifier_model:
           <<: *tags_only
+
+# VS Code Extension Version: 1.4.0
