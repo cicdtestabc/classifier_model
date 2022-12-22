@@ -29,7 +29,6 @@ jobs:
     steps:
       - checkout:
           path: ~/project
-      - *prepare_venv
       - *prepare_tox
       - run:
           name: Runnning app tests
@@ -41,7 +40,6 @@ jobs:
     steps:
       - checkout:
           path: ~/project
-      - *prepare_venv
       - *prepare_tox
       - run:
           name: Test the model
