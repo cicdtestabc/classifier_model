@@ -9,9 +9,10 @@ prepare_venv: &prepare_venv
   run:
     name: Create venv
     command: |
+      pip install --upgrade pip
+      pip install virtualenv 
       python3 -m venv venv
       source venv/bin/activate
-      pip install --upgrade pip
 prepare_tox: &prepare_tox
   run:
     name: Install tox
@@ -27,6 +28,7 @@ jobs:
     steps:
       - checkout:
           path: ~/project
+      - *prepare_venv
       - *prepare_tox
       - run:
           name: Runnning app tests
@@ -38,6 +40,7 @@ jobs:
     steps:
       - checkout:
           path: ~/project
+      - *prepare_venv
       - *prepare_tox
       - run:
           name: Test the model
