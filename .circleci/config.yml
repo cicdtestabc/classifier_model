@@ -28,7 +28,6 @@ jobs:
       - checkout:
           path: ~/project
       - *prepare_tox
-      - *prepare_venv
       - run:
           name: Runnning app tests
           command: |
@@ -40,7 +39,6 @@ jobs:
       - checkout:
           path: ~/project
       - *prepare_tox
-      - *prepare_venv
       - run:
           name: Test the model
           command: |
