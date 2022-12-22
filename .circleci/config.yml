@@ -10,7 +10,7 @@ prepare_venv: &prepare_venv
     name: Create venv
     command: |
       pip install --upgrade pip
-      pip uninstall virtualenv
+      pip uninstall virtualenv --yes
       pip install virtualenv  
       python3 -m venv venv
       source venv/bin/activate
