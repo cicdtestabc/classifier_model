@@ -18,6 +18,7 @@ app = FastAPI(
 
 root_router = APIRouter()
 
+
 @root_router.get("/")
 def index(request: Request) -> Any:
     """Basic HTML response."""
@@ -42,7 +43,8 @@ app.include_router(root_router)
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+        allow_origins=[str(origin)
+                       for origin in settings.BACKEND_CORS_ORIGINS],
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -51,7 +53,8 @@ if settings.BACKEND_CORS_ORIGINS:
 
 if __name__ == "__main__":
     # Use this for debugging purposes only
-    logger.warning("Running in development mode. Do not run like this in production.")
+    logger.warning(
+        "Running in development mode. Do not run like this in production.")
     import uvicorn
 
     uvicorn.run(app, host="localhost", port=8001, log_level="debug")
